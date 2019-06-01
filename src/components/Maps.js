@@ -17,7 +17,8 @@ function Maps(props) {
         width: "100vw",       
       }}
       onMove={(event, map) => console.log(event, map)}
-      {...props}
+      center={props.center}
+      zoom={props.zoom}
     >
     <Layer
       type="symbol"

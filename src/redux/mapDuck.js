@@ -22,31 +22,24 @@ function setBoundingBox(state, action) {
 
 function setViewport(state, action) {
   const { viewport } = action.payload
+  const center = [viewport.longitude, viewport.latitude]
+  const zoom = [viewport.zoom]
   
-  return { ...state, viewport }
-}
-
-function setItem(state, action) {
-  const { item } = action.payload
-
-  return { ...state, item }
+  return { ...state, viewport, center, zoom }
 }
 
 const map = createSlice({
   slice: 'map',
   initialState: {
-    fetching: false,
-    error: false,
     viewport: defaultViewport,
-    loading: true,
-    map: {},
-    item: null
+    center: [defaultViewport.longitude, defaultViewport.latitude],
+    zoom: [defaultViewport.zoom],
+    loading: true
   },
   reducers: {
     fetchMapSuccess,
     setBoundingBox,
-    setViewport,
-    setItem
+    setViewport
   }
 })
 
