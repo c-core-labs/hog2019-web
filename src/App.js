@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Router, Location } from '@reach/router'
 
 import LandingRoute from './routes/Landing'
+import MapsRoute from './routes/Maps'
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
           return (
             <Router style={style} >
               <LandingRoute path='/' style={{ overflowY: 'scroll' }} />
-              <LandingRoute path='maps/*' />
+              <MapsRoute path='maps/*' />
               <LandingRoute default />
             </Router>
           )}}
