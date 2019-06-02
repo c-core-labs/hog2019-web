@@ -49,15 +49,10 @@ function Maps(props) {
       property='mean_wind'
       min={8.1}
       max={11.2}
-      label={'knots'}
+      label={'meters per second'}
     />
 </Map>
   )
 }
 
 export default Maps
-// mean_temp = 4.49, 22.47
-// mean_wind = 8.1, 11.2
-// wind_pot = 15551, 45520
-// mean_cloud_pot = 62, 86
-// solar_pot = 1285, 3927 
