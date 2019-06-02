@@ -13,7 +13,7 @@ function App() {
         {props => {
           // Add vertical scroll to all routes but mapping routes
           const { location: { pathname } } = props                        
-          const style = pathname === '/map' ? {} : { overflowY: 'scroll' }
+          const style = pathname === '/maps' ? {} : { overflowY: 'scroll' }
           return (
             <Router style={style} >
               <LandingRoute path='/' style={{ overflowY: 'scroll' }} />
