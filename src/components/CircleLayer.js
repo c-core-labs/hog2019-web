@@ -1,11 +1,16 @@
 import React, { Component, Fragment } from 'react'
 import { GeoJSONLayer, Source, Layer } from 'react-mapbox-gl'
+import { useSelector } from 'react-redux'
+
+import year from '../redux/yearDuck'
 
 const makeUrl = ({ id }) =>
       //`https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/${id}.geojson`
       `/${id}.geojson`
 
 function CircleLayer(props) {
+  const yearProps = useSelector(state => year.selectors.getYear(state))
+  
   const { id, property } = props
 
   const url = makeUrl({ id })
@@ -28,7 +33,7 @@ function CircleLayer(props) {
         id={layerId}
         sourceId={sourceId}
         onMouseEnter={console.log}
-        filter={['==', 'time', 2100]}
+        filter={['==', 'time', yearProps.year]}
         paint={{          
           'circle-color': [
             'interpolate',

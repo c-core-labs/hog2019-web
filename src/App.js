@@ -16,7 +16,7 @@ function App() {
           const style = pathname === '/maps' ? {} : { overflowY: 'scroll' }
           return (
             <Router style={style} >
-              <LandingRoute path='/' style={{ overflowY: 'scroll' }} />
+              {/* <LandingRoute path='/' style={{ overflowY: 'scroll' }} /> */}
               <MapsRoute path='maps/*' />
               <LandingRoute default />
             </Router>
