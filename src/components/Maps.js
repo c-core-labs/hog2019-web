@@ -28,24 +28,28 @@ function Maps(props) {
       property='wind_potential'
       min={15551}
       max={45520}
+      label={'Potential'}
     />
     <CircleLayer
       id='solar-potential'
       property='solar_pot'
       min={1285}
-      max={4359}
+      max={3927}
+      label={'Potential'}
     />
     <CircleLayer
       id='mean-cloud'
       property='mea_ncloud_pct'
-      min={57}
+      min={62}
       max={86}
+      label={'percent'}
     />
     <CircleLayer
       id='mean-wind'
       property='mean_wind'
       min={8.1}
       max={11.2}
+      label={'knots'}
     />
 </Map>
   )
@@ -55,5 +59,5 @@ export default Maps
 // mean_temp = 4.49, 22.47
 // mean_wind = 8.1, 11.2
 // wind_pot = 15551, 45520
-// mean_cloud_pot = 57, 86
-// solar_pot = 1285, 4359
+// mean_cloud_pot = 62, 86
+// solar_pot = 1285, 3927 

@@ -5,6 +5,7 @@ import Maps from '../components/Maps'
 import Slider from '../components/Slider'
 import Year from '../components/Year'
 import LayerSelector from '../components/LayerSelector'
+import Hover from '../components/Hover'
 import map from '../redux/mapDuck'
 
 function MapsContainer(props) {
@@ -18,6 +19,7 @@ function MapsContainer(props) {
       <Slider />
       <Year />
       <LayerSelector />
+      <Hover />
     </Fragment>
   )
 }

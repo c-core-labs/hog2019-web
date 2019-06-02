@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { GeoJSONLayer, Source, Layer } from 'react-mapbox-gl'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import year from '../redux/yearDuck'
 import layer from '../redux/layerDuck'
+import hover from '../redux/hoverDuck'
 
 const makeUrl = ({ id }) =>
       //`https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/${id}.geojson`
@@ -12,8 +13,18 @@ const makeUrl = ({ id }) =>
 function CircleLayer(props) {
   const yearProps = useSelector(state => year.selectors.getYear(state))
   const layerProps = useSelector(state => layer.selectors.getLayer(state))
+  const dispatch = useDispatch()
 
-  const { id, property, min=0, max=100 } = props
+  const { id, property, min=0, max=100, label='Label' } = props
+
+  function handleHover(event) {
+    // if (!event || !event.features || event.features[0]) {
+    //   return
+    // }
+    const properties = event.features[0].properties
+
+    dispatch(hover.actions.changeHover({ label, value: properties[property] }))
+  }
 
   const visibility = layerProps.layer === id ? 'visible' : 'none'
   const url = makeUrl({ id })
@@ -35,7 +46,7 @@ function CircleLayer(props) {
         type='circle'
         id={layerId}
         sourceId={sourceId}
-        onMouseEnter={event => console.log(event.features[0].properties)}
+        onMouseEnter={handleHover}
         filter={['==', 'time', yearProps.year]}
         layout={{
           'visibility': visibility
