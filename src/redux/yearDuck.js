@@ -2,10 +2,10 @@ import { createSlice } from 'redux-starter-kit'
 import { defaultViewport } from '../config'
 import getCenter from '../utils/getCenter'
 
-function changeYear(state, action) {
+function changeYear (state, action) {
   const { year } = action.payload
 
-  return { ...state, year}
+  return { ...state, year }
 }
 
 const year = createSlice({

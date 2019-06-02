@@ -8,14 +8,12 @@ import LayerSelector from '../components/LayerSelector'
 import Hover from '../components/Hover'
 import map from '../redux/mapDuck'
 
-function MapsContainer(props) {
+function MapsContainer (props) {
   const mapProps = useSelector(state => map.selectors.getMap(state))
 
-  return(
+  return (
     <Fragment>
-    <Maps
-    {...mapProps}
-    />
+      <Maps {...mapProps} />
       <Slider />
       <Year />
       <LayerSelector />

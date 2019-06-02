@@ -10,49 +10,47 @@ const Map = ReactMapboxGl({
   hash: true
 })
 
-function Maps(props) {
+function Maps (props) {
   return (
     <Map
-      style="mapbox://styles/mapbox/streets-v9"
+      style='mapbox://styles/mapbox/streets-v9'
       containerStyle={{
-        height: "100vh",
-        width: "100vw",       
+        height: '100vh',
+        width: '100vw'
       }}
       center={props.center}
       zoom={props.zoom}
     >
-    <GeoJsonLayer
-      id='sites'
-    />
-    <CircleLayer
-      id='wind-potential'
-      property='wind_potential'
-      min={15551}
-      max={45520}
-      label={'kilowatts per year'}
-    />
-    <CircleLayer
-      id='solar-potential'
-      property='solar_pot'
-      min={1285}
-      max={3927}
-      label={'kilowatts per year'}
-    />
-    <CircleLayer
-      id='mean-cloud'
-      property='mea_ncloud_pct'
-      min={62}
-      max={86}
-      label={'percent'}
-    />
-    <CircleLayer
-      id='mean-wind'
-      property='mean_wind'
-      min={8.1}
-      max={11.2}
-      label={'meters per second'}
-    />
-</Map>
+      <GeoJsonLayer id='sites' />
+      <CircleLayer
+        id='wind-potential'
+        property='wind_potential'
+        min={15551}
+        max={45520}
+        label={'kilowatts per year'}
+      />
+      <CircleLayer
+        id='solar-potential'
+        property='solar_pot'
+        min={1285}
+        max={3927}
+        label={'kilowatts per year'}
+      />
+      <CircleLayer
+        id='mean-cloud'
+        property='mea_ncloud_pct'
+        min={62}
+        max={86}
+        label={'percent'}
+      />
+      <CircleLayer
+        id='mean-wind'
+        property='mean_wind'
+        min={8.1}
+        max={11.2}
+        label={'meters per second'}
+      />
+    </Map>
   )
 }
 

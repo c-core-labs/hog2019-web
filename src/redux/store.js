@@ -11,9 +11,7 @@ const store = configureStore({
     layer: layer.reducer,
     hover: hover.reducer
   },
-  middleware: [
-    ...getDefaultMiddleware()
-  ],
+  middleware: [...getDefaultMiddleware()],
   devTools: true
 })
 

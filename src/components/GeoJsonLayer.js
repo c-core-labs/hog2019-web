@@ -5,35 +5,35 @@ import { useDispatch, useSelector } from 'react-redux'
 import hover from '../redux/hoverDuck'
 
 const makeUrl = ({ id }) =>
-      //`https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/${id}.geojson`
-      `/${id}.geojson`
+  //`https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/${id}.geojson`
+  `/${id}.geojson`
 
-function onMouseEnter(event) {
+function onMouseEnter (event) {
   console.log(event)
 }
 
-function GeoJsonLayer(props) {
+function GeoJsonLayer (props) {
   const dispatch = useDispatch()
   const { id } = props
 
   const url = makeUrl({ id })
 
-  function handleClick(event) {
-    window.open('https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/sample-report.pdf')
+  function handleClick (event) {
+    window.open('/sample-report.pdf')
   }
-  
-  function handleHover(event) {
+
+  function handleHover (event) {
     const properties = event.features[0].properties
     // console.log(properties)
-    
+
     event.target.getCanvas().style.cursor = 'pointer'
     // dispatch(hover.actions.changeHover({ label, value: properties[property] }))
   }
 
-  function handleMouseOut(event) {
+  function handleMouseOut (event) {
     event.target.getCanvas().style.cursor = ''
   }
-  
+
   return (
     <Fragment>
       <GeoJSONLayer
@@ -52,7 +52,7 @@ function GeoJsonLayer(props) {
           'line-opacity': 1,
           'line-color': 'red'
         }}
-        />
+      />
     </Fragment>
   )
 }

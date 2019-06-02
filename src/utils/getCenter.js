@@ -1,9 +1,9 @@
 import centroid from '@turf/centroid'
 import bboxPolygon from '@turf/bbox-polygon'
 
-function getCenter(boundingBox) {
+function getCenter (boundingBox) {
   const polygon = bboxPolygon(boundingBox)
-  const centerFeature = centroid((polygon))
+  const centerFeature = centroid(polygon)
   const [longitude, latitude] = centerFeature.geometry.coordinates
   const center = { longitude, latitude }
 

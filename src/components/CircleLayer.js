@@ -6,24 +6,23 @@ import year from '../redux/yearDuck'
 import layer from '../redux/layerDuck'
 import hover from '../redux/hoverDuck'
 
-const makeUrl = ({ id }) =>
-      `/${id}.geojson`
+const makeUrl = ({ id }) => `/${id}.geojson`
 
-function CircleLayer(props) {
+function CircleLayer (props) {
   const yearProps = useSelector(state => year.selectors.getYear(state))
   const layerProps = useSelector(state => layer.selectors.getLayer(state))
   const dispatch = useDispatch()
 
-  const { id, property, min=0, max=100, label='Label' } = props
+  const { id, property, min = 0, max = 100, label = 'Label' } = props
 
-  function handleHover(event) {
+  function handleHover (event) {
     const properties = event.features[0].properties
-    
+
     event.target.getCanvas().style.cursor = 'pointer'
     dispatch(hover.actions.changeHover({ label, value: properties[property] }))
   }
 
-  function handleMouseOut(event) {
+  function handleMouseOut (event) {
     event.target.getCanvas().style.cursor = ''
   }
 
@@ -31,7 +30,7 @@ function CircleLayer(props) {
   const url = makeUrl({ id })
   const sourceId = `${id}-circle-source`
   const layerId = `${id}-circle`
-  
+
   return (
     <Fragment>
       <Source
@@ -51,17 +50,20 @@ function CircleLayer(props) {
         onMouseLeave={handleMouseOut}
         filter={['==', 'time', yearProps.year]}
         layout={{
-          'visibility': visibility
+          visibility: visibility
         }}
-        paint={{          
+        paint={{
           'circle-color': [
             'interpolate',
             ['linear'],
             ['to-number', ['get', property]],
-            min, 'blue',
-            (min+max)/2, 'yellow',
-            max, 'red'
-            ]
+            min,
+            'blue',
+            (min + max) / 2,
+            'yellow',
+            max,
+            'red'
+          ]
         }}
       />
     </Fragment>

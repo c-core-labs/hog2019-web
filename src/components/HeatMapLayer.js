@@ -2,16 +2,16 @@ import React, { Component, Fragment } from 'react'
 import { GeoJSONLayer, Source, Layer } from 'react-mapbox-gl'
 
 const makeUrl = ({ id }) =>
-      //`https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/${id}.geojson`
-      `/${id}.geojson`
+  //`https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/${id}.geojson`
+  `/${id}.geojson`
 
-function HeatMapLayer(props) {
+function HeatMapLayer (props) {
   const { id, property } = props
 
   const url = makeUrl({ id })
   const sourceId = `${id}-heatmap-source`
   const layerId = `${id}-heatmap`
-  
+
   return (
     <Fragment>
       <Source
@@ -32,9 +32,9 @@ function HeatMapLayer(props) {
       {/*   }} */}
       {/* /> */}
       <Layer
-        key={layerId+'heatmap'}
+        key={layerId + 'heatmap'}
         type='heatmap'
-        id={layerId+'heatmap'}
+        id={layerId + 'heatmap'}
         sourceId={sourceId}
         onMouseEnter={console.log}
         paint={{
@@ -63,14 +63,17 @@ function HeatMapLayer(props) {
           /*   7, 1, */
           /*   9, 0 */
           /* ], */
-          "heatmap-weight": [
-            "interpolate",
-            ["linear"],
-            ["get", property],
-            0, 0,
-            10, 0.5,
-            20, 1
-          ],
+          'heatmap-weight': [
+            'interpolate',
+            ['linear'],
+            ['get', property],
+            0,
+            0,
+            10,
+            0.5,
+            20,
+            1
+          ]
         }}
       />
     </Fragment>

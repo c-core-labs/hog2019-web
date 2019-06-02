@@ -1,5 +1,5 @@
 import React from 'react'
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
 import { useSelector } from 'react-redux'
 import Typography from '@material-ui/core/Typography'
 
@@ -11,12 +11,12 @@ const styles = {
     top: '50px',
     left: '20px'
   }
-};
+}
 
-function Year(props) {
+function Year (props) {
   const yearProps = useSelector(state => year.selectors.getYear(state))
   const { classes } = props
-  
+
   return (
     <div className={classes.root}>
       <Typography variant='h2'>{yearProps.year}</Typography>

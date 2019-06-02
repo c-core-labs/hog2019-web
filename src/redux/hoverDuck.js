@@ -2,10 +2,10 @@ import { createSlice } from 'redux-starter-kit'
 import { defaultViewport } from '../config'
 import getCenter from '../utils/getCenter'
 
-function changeHover(state, action) {
+function changeHover (state, action) {
   const { label, value } = action.payload
 
-  return { ...state, label, value}
+  return { ...state, label, value }
 }
 
 const hover = createSlice({

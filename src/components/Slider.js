@@ -1,6 +1,6 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Slider from '@material-ui/lab/Slider';
+import React from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import Slider from '@material-ui/lab/Slider'
 import { useDispatch, useSelector } from 'react-redux'
 import year from '../redux/yearDuck'
 
@@ -12,16 +12,16 @@ const styles = {
     left: '10px'
   },
   slider: {
-    padding: '22px 0px',
-  },
-};
+    padding: '22px 0px'
+  }
+}
 
-function StepSlider(props) {
+function StepSlider (props) {
   const yearProps = useSelector(state => year.selectors.getYear(state))
   const dispatch = useDispatch()
-  const { classes } = props;
+  const { classes } = props
   const value = yearProps.year
-  
+
   return (
     <div className={classes.root}>
       <Slider
@@ -30,10 +30,12 @@ function StepSlider(props) {
         min={2015}
         max={2100}
         step={1}
-        onChange={(event, value) => dispatch(year.actions.changeYear({ year: value }))}
+        onChange={(event, value) =>
+          dispatch(year.actions.changeYear({ year: value }))
+        }
       />
     </div>
   )
 }
 
-export default withStyles(styles)(StepSlider);
+export default withStyles(styles)(StepSlider)
