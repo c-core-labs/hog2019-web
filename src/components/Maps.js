@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl'
+import ReactMapboxGl from 'react-mapbox-gl'
 
 import { accessToken } from '../config'
 import GeoJsonLayer from './GeoJsonLayer'
@@ -23,15 +23,17 @@ function Maps(props) {
       center={props.center}
       zoom={props.zoom}
     >
-    <Layer
-      type="symbol"
-      id="marker"
-      layout={{ "icon-image": "marker-15" }}>
-      <Feature coordinates={[-0.481747846041145, 51.3233379650232]}/>
-    </Layer>     
     <CircleLayer
         id='wind-potential'
         property='mean_temp'
+    />
+      <CircleLayer
+        id='solar-potential'
+        property='solar_pot'
+      />
+      <CircleLayer
+        id='mean-cloud'
+        property='mea_ncloud_pct'
       />
 </Map>
   )
