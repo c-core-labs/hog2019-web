@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Provider } from 'react-redux'
 import { Router, Location } from '@reach/router'
+import 'typeface-roboto'
 
 import store from './redux/store'
 import LandingRoute from './routes/Landing'
@@ -17,6 +18,7 @@ function App() {
           return (
             <Router style={style} >
               {/* <LandingRoute path='/' style={{ overflowY: 'scroll' }} /> */}
+              <MapsRoute path='/' />
               <MapsRoute path='maps/*' />
               <LandingRoute default />
             </Router>
