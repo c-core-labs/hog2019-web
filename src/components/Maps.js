@@ -12,7 +12,6 @@ const Map = ReactMapboxGl({
 })
 
 function Maps(props) {
-  console.log({ props })
   return (
     <Map
       style="mapbox://styles/mapbox/streets-v9"
