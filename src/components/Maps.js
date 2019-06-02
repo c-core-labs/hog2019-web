@@ -28,14 +28,14 @@ function Maps(props) {
       property='wind_potential'
       min={15551}
       max={45520}
-      label={'Potential'}
+      label={'kilowatts per year'}
     />
     <CircleLayer
       id='solar-potential'
       property='solar_pot'
       min={1285}
       max={3927}
-      label={'Potential'}
+      label={'kilowatts per year'}
     />
     <CircleLayer
       id='mean-cloud'

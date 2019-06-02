@@ -7,7 +7,6 @@ import layer from '../redux/layerDuck'
 import hover from '../redux/hoverDuck'
 
 const makeUrl = ({ id }) =>
-      //`https://s3-us-west-2.amazonaws.com/coresight-layers/hog2019/${id}.geojson`
       `/${id}.geojson`
 
 function CircleLayer(props) {
@@ -18,12 +17,14 @@ function CircleLayer(props) {
   const { id, property, min=0, max=100, label='Label' } = props
 
   function handleHover(event) {
-    // if (!event || !event.features || event.features[0]) {
-    //   return
-    // }
     const properties = event.features[0].properties
-
+    
+    event.target.getCanvas().style.cursor = 'pointer'
     dispatch(hover.actions.changeHover({ label, value: properties[property] }))
+  }
+
+  function handleMouseOut(event) {
+    event.target.getCanvas().style.cursor = ''
   }
 
   const visibility = layerProps.layer === id ? 'visible' : 'none'
@@ -47,6 +48,7 @@ function CircleLayer(props) {
         id={layerId}
         sourceId={sourceId}
         onMouseEnter={handleHover}
+        onMouseLeave={handleMouseOut}
         filter={['==', 'time', yearProps.year]}
         layout={{
           'visibility': visibility
