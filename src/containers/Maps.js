@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import Maps from '../components/Maps'
 import Slider from '../components/Slider'
 import Year from '../components/Year'
+import LayerSelector from '../components/LayerSelector'
 import map from '../redux/mapDuck'
 
 function MapsContainer(props) {
@@ -16,6 +17,7 @@ function MapsContainer(props) {
     />
       <Slider />
       <Year />
+      <LayerSelector />
     </Fragment>
   )
 }
