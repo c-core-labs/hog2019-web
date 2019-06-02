@@ -13,7 +13,7 @@ function CircleLayer(props) {
   const yearProps = useSelector(state => year.selectors.getYear(state))
   const layerProps = useSelector(state => layer.selectors.getLayer(state))
 
-  const { id, property } = props
+  const { id, property, min=0, max=100 } = props
 
   const visibility = layerProps.layer === id ? 'visible' : 'none'
   const url = makeUrl({ id })
@@ -35,7 +35,7 @@ function CircleLayer(props) {
         type='circle'
         id={layerId}
         sourceId={sourceId}
-        // onMouseEnter={console.log}
+        onMouseEnter={event => console.log(event.features[0].properties)}
         filter={['==', 'time', yearProps.year]}
         layout={{
           'visibility': visibility
@@ -45,8 +45,9 @@ function CircleLayer(props) {
             'interpolate',
             ['linear'],
             ['to-number', ['get', property]],
-            0, 'blue',
-            15, 'red'
+            min, 'blue',
+            (min+max)/2, 'yellow',
+            max, 'red'
             ]
         }}
       />

@@ -46,6 +46,7 @@ function RadioButtonsGroup() {
           onChange={handleChange}
         >
           <FormControlLabel value="wind-potential" control={<Radio />} label="Wind potential" />
+          <FormControlLabel value="mean-wind" control={<Radio />} label="Mean wind" />
           <FormControlLabel value="solar-potential" control={<Radio />} label="Solar potential" />
           <FormControlLabel value="mean-cloud" control={<Radio />} label="Mean cloud cover" />
         </RadioGroup>
