@@ -1,7 +1,10 @@
-# Hacking Oild & Gas 2019
+# ⛏ Hacking Oil & Gas 2019 🛢
 
 https://hog2019.hhstjohnsnl.com
 
+Don't forget to set your Mapbox access token in `.env`. See `.env.example` for an example!
+
+## Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
