@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import { GeoJSONLayer, Source, Layer } from 'react-mapbox-gl'
+import React, { Fragment } from 'react'
+import { Source, Layer } from 'react-mapbox-gl'
 import { useDispatch, useSelector } from 'react-redux'
 
 import year from '../redux/yearDuck'
