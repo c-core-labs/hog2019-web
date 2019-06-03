@@ -1,3 +1,8 @@
+# Hacking Oild & Gas 2019
+
+https://hog2019.hhstjohnsnl.com
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
