@@ -4,23 +4,17 @@ import { Router, Location } from '@reach/router'
 import 'typeface-roboto'
 
 import store from './redux/store'
-import LandingRoute from './routes/Landing'
 import MapsRoute from './routes/Maps'
 
 function App() {
   return (
     <Provider store={store}>
       <Location>
-        {props => {
-          // Add vertical scroll to all routes but mapping routes
-          const { location: { pathname } } = props                        
-          const style = pathname === '/maps' ? {} : { overflowY: 'scroll' }
+        {() => {
           return (
-            <Router style={style} >
-              {/* <LandingRoute path='/' style={{ overflowY: 'scroll' }} /> */}
+            <Router>
               <MapsRoute path='/' />
-              <MapsRoute path='maps/*' />
-              <LandingRoute default />
+              <MapsRoute default />
             </Router>
           )}}
         </Location>      
