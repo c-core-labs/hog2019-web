@@ -4,4 +4,3 @@ export const defaultViewport = {
   longitude: -52,
   zoom: 3.5
 }
-

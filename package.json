@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "flow-bin": "^0.100.0",
     "prettier-standard": "^9.1.1"
   }
 }
