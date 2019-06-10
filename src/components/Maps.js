@@ -4,6 +4,8 @@ import ReactMapboxGl from 'react-mapbox-gl'
 import { accessToken } from '../config'
 import GeoJsonLayer from './GeoJsonLayer'
 import CircleLayer from './CircleLayer'
+import HeatmapLayer from './HeatmapLayer'
+import FillLayer from './FillLayer'
 
 const Map = ReactMapboxGl({
   accessToken,
@@ -22,7 +24,7 @@ function Maps (props) {
       zoom={props.zoom}
     >
       <GeoJsonLayer id='sites' />
-      <CircleLayer
+      <HeatmapLayer
         id='wind-potential'
         property='wind_potential'
         min={15551}
